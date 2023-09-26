@@ -21,6 +21,7 @@ namespace Lab_2
         {
             AllocConsole();
             Lab2.Main_(args);
+            Console.Read();
         }
     }
 }
