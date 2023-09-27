@@ -7,17 +7,17 @@ This folder is dedicated to Lab-2, which consists of 3 different tasks with diff
 ## Tasks:
 - _Lab2_ - For modelling events stream, create a program on one of the programming languages, to solve the next problem:
 
-The average number of unauthorized accesses (UA) per year to the local computer network of the company equals 3.
+The average number of unauthorized accesses (UA) per hour to the local computer network of the company equals 3.
 The stream (flow) of events is the simplest. You need to model the stream of random events according to the algorithm below.
 
 ![Algorithm photo](https://github.com/FranklinMar/Modelling/blob/main/Lab-2/Algorithm.png)
 
-Observation time is 3 hours. Test the algorithm at least 20 times. Calculate, based on the results of the program, the probability that after 3 years
+Observation time is 3 hours. Test the algorithm at least 20 times (iterations). Calculate, based on the results of the program, the probability that after 3 years
 there will be:
 
-	1) Exatcly 5 UAs;
-	2) More than 5 UAs;
-	3) No more than 5 UAs.
+	1) Exactly 5 UA's;
+	2) More than 5 UA's;
+	3) No more than 5 UA's.
 
 - _Lab2_1_ - Calculate the Lagrange interpolation polynomial L(x) for functions f(x), which is given by the table of points below.
 
