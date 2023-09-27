@@ -30,11 +30,11 @@ namespace Lab_3
             string AccurateFormula = "y = √5/6 * (sin(x / √5) - √5 * cos (x / √5)) + C * e^x";
             string Solution = AccurateFormula.Replace("+ C * e^x", 
                 "-\n\t- 1 / 30 * (5√5 * sin(9 / 5√5) - 25 * cos (9 / 5√5) - 78) * e ^ (x - 1.8)");
-            Console.WriteLine($"\tЗадача Коші\n{Line}"); //($"\tDifferential equation\n{Line}");
-            Console.WriteLine($"Диференційне рівняння: {DifferentialEquation}");//($"Differential Equation: {DifferentialEquation}");
-            Console.WriteLine($"Умова: {Condition}");//($"Condition: {Condition}");
-            Console.WriteLine($"Аналітичний розв'язок ДР: {AccurateFormula}");//($"Accurate solution function: {AccurateFormula}");
-            Console.WriteLine($"Розв'язок задачі Коші: {Solution}\n{Line}\n\n");//($"Full solution function: {Solution}\n{Line}\n\n");
+            Console.WriteLine($"\tCauchy's problem\n{Line}"); //($"\tDifferential equation\n{Line}");
+            Console.WriteLine($"Differential Equation: {DifferentialEquation}");//($"Differential Equation: {DifferentialEquation}");
+            Console.WriteLine($"Condition: {Condition}");//($"Condition: {Condition}");
+            Console.WriteLine($"Precise solution function: {AccurateFormula}");//($"Accurate solution function: {AccurateFormula}");
+            Console.WriteLine($"Solution of Cauchy's problem: {Solution}\n{Line}\n\n");//($"Full solution function: {Solution}\n{Line}\n\n");
 
             string Header = $"|  {"x",-3}|  {"y(x)",-10}|";
             string FormatString = "|{0, 5:0.00}|{1, 12:0.000000}|";
@@ -44,8 +44,8 @@ namespace Lab_3
                    (5 * Sqrt5 * Math.Sin(9 / (5 * Sqrt5)) - 25 * Math.Cos(9 / (5 * Sqrt5)) - 78) / 30 * Math.Exp(x - x0);
 
 
-            Names.Add("Аналітичний");//("Accurate");
-            Console.WriteLine($"\tАналітичний розв'язок");//($"\tAccurate solution");
+            Names.Add("Precise");//("Accurate");
+            Console.WriteLine($"\tPrecise solution");//($"\tAccurate solution");
             Console.WriteLine($"{Line}\n{Header}\n{Line}");
             for (double x = x0, y; Math.Round(x, 1) <= x0 + 1; x = Math.Round(x + h, 1))
             {
@@ -65,9 +65,9 @@ namespace Lab_3
             Func <double, double, double> Function = (x, y) => y + Math.Cos(x / Math.Sqrt(5));
 
 
-            Names.Add("Ейлера");//("Euler's");
+            Names.Add("Euler's");//("Euler's");
             List<double []> EulerResults = new List<double []>();
-            Console.WriteLine($"\tМетод Ейлера");//($"\tEuler's Method");
+            Console.WriteLine($"\tEuler's Method");//($"\tEuler's Method");
             Console.WriteLine($"{Line}\n{Header}\n{Line}");
             for (double x = x0, y = y0; Math.Round(x, 1) <= x0 + 1; x = Math.Round(x + h, 1), y += h * Function(x, y), i++)
             {
@@ -79,9 +79,9 @@ namespace Lab_3
 
 
             i = 0;
-            Names.Add("Ейлера-Коші");//("Cauchy-Euler's");
+            Names.Add("Cauchy-Euler's");//("Cauchy-Euler's");
             List<double []> CauchyEulerResults = new List<double []>();
-            Console.WriteLine($"\tМетод Ейлера-Коші");//($"\tCauchy-Euler's Method");
+            Console.WriteLine($"\tCauchy-Euler's Method");//($"\tCauchy-Euler's Method");
             Console.WriteLine($"{Line}\n{Header}\n{Line}");
             for (double x = x0, y = y0, y_new; Math.Round(x, 1) <= x0 + 1; x = Math.Round(x + h, 1), i++)
             {
@@ -95,9 +95,9 @@ namespace Lab_3
 
 
             i = 0;
-            Names.Add("Вдосконалений Ейлера"); //("Improved Euler's");
+            Names.Add("Improved Euler's"); //("Improved Euler's");
             List<double []> ImprovedEulerResults = new List<double []>();
-            Console.WriteLine($"\tВдосконалений метод Ейлера");//($"\tImproved Euler's Method");
+            Console.WriteLine($"\tImproved Euler's Method");//($"\tImproved Euler's Method");
             Console.WriteLine($"{Line}\n{Header}\n{Line}");
             for (double x = x0, y = y0; Math.Round(x, 1) <= x0 + 1; x = Math.Round(x + h, 1), i++)
             {
@@ -110,9 +110,9 @@ namespace Lab_3
 
 
             i = 0;
-            Names.Add("Рунге-Кутта");//("Runge-Kutta's");
+            Names.Add("Runge-Kutt's");//("Runge-Kutta's");
             List<double []> RungeKuttaResults = new List<double []>();
-            Console.WriteLine($"\tМетод Рунге-Кутта");//($"\tRunge-Kutta's Method");
+            Console.WriteLine($"\tRunge-Kutt's Method");//($"\tRunge-Kutta's Method");
             Console.WriteLine($"{Line}\n{Header}\n{Line}");
             for (double x = x0, y = y0, k0, k1, k2, k3; Math.Round(x, 2) <= x0 + 1; x = Math.Round(x + h, 1), i++)
             {
