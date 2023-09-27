@@ -28,3 +28,6 @@ to start from state _S<sub><sup>1</sub></sup>_.
 |_P<sub><sup>12</sub></sup>_|_P<sub><sup>13</sub></sup>_|_P<sub><sup>14</sub></sup>_|_P<sub><sup>15</sub></sup>_|_P<sub><sup>23</sub></sup>_|_P<sub><sup>24</sub></sup>_|_P<sub><sup>25</sub></sup>_|_P<sub><sup>34</sub></sup>_|_P<sub><sup>35</sub></sup>_|_P<sub><sup>45</sub></sup>_|
 --- | --- | --- | --- | --- | --- | --- | --- | --- | ---  
 |0.25|0.20|0.10|0.05|0.30|0.25|0.10|0.40|0.15|0.60|
+
+## Graph
+![Algorithm photo](https://github.com/FranklinMar/Modelling/blob/main/Lab-5/graph.png)
