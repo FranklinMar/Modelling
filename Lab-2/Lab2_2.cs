@@ -19,7 +19,7 @@ namespace Lab_2
             };
             vector = new double[] { 20, 19.2, 21.3 };
             Console.WriteLine(new string('-', 25));
-            Console.WriteLine("\tРІШЕННЯ #1 (3x3):");
+            Console.WriteLine("\tSolution #1 (3x3):");
             Console.WriteLine(new string('-', 25));
             double[] result = null;
             try
@@ -48,7 +48,7 @@ namespace Lab_2
             };
             vector = new double[] { 18, -15, 0, 21 };
             Console.WriteLine(new string('-', 25));
-            Console.WriteLine("\tРІШЕННЯ #2 (4x4):");
+            Console.WriteLine("\tSolution #2 (4x4):");
             Console.WriteLine(new string('-', 25));
             try
             {
@@ -76,7 +76,7 @@ namespace Lab_2
                 SLAE.DisplayMatrix(matrix, vector, result);
             }
             Console.WriteLine(new string('-', 25));
-            Console.WriteLine("\tТОЧНЕ РІШЕННЯ (4x4):");
+            Console.WriteLine("\tPrecise solution (4x4):");
             Console.WriteLine(new string('-', 25));
             try
             {

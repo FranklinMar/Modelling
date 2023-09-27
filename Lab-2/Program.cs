@@ -20,7 +20,37 @@ namespace Lab_2
         static void Main(string[] args)
         {
             AllocConsole();
-            Lab2.Main_(args);
+            int Lab;
+            int Labs = 3;
+            while (true)
+            {
+                Console.Write("Enter Lab (0, 1, 2): ");
+                try
+                {
+                    Lab = Convert.ToInt32(Console.ReadLine());
+                    if (Lab < 0 || Lab >= Labs)
+                    {
+                        throw new Exception("Out of labs range");
+                    }
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            switch (Lab)
+            {
+                case 0:
+                    Lab2.Main_(args);
+                    break;
+                case 1:
+                    Lab2_1.Main_(args);
+                    break;
+                case 2:
+                    Lab2_2.Main_(args);
+                    break;
+            }
             Console.Read();
         }
     }

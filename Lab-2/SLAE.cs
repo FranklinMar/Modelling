@@ -12,11 +12,11 @@ namespace Lab_2
         {
             if (Matrix.Length == 0 || (Vector != null && Vector.Length == 0))
             {
-                throw new ArgumentException("Розміри масивів не повинні бути 0");
+                throw new ArgumentException("Matrix dimensions must not be 0");
             }
             if (Enumerable.Any(Matrix, i => i.Length != Matrix.Length) || (Vector != null && Matrix.Length != Vector.Length))
             {
-                throw new ArgumentException("Розміри масиву мають бути однакові");
+                throw new ArgumentException("Matrix sizes must be equal");
             }
             for (int i = 0; i < Matrix.Length; i++)
             {
@@ -49,7 +49,7 @@ namespace Lab_2
                     }
                     if (j == Matrix.Length) // No non-zero element found below diagonal element, matrix cannot be sorted
                     {
-                        throw new ArgumentException("Матриця не може бути відсортована, діагональ містить 0");
+                        throw new ArgumentException("Matrix could not be sorted, because diagonal contains 0");
                     }
                     // Swap rows i and j = Matrix[i];
                     TempRow = Matrix[i];
@@ -68,11 +68,11 @@ namespace Lab_2
         {
             if (Matrix.Length == 0 || Vector.Length == 0)
             {
-                throw new ArgumentException("Розміри масивів не повинні бути 0");
+                throw new ArgumentException("Matrix dimensions must not be 0");
             }
             if (Enumerable.Any(Matrix, i => i.Length != Matrix.Length) || Matrix.Length != Vector.Length)
             {
-                throw new ArgumentException("Розміри масиву мають бути однакові");
+                throw new ArgumentException("Matrix sizes must be equal");
             }
             double[][] Clone = CloneMatrix(Matrix);
             Matrix = Clone;
@@ -91,7 +91,7 @@ namespace Lab_2
                 }
                 if (Math.Abs(Matrix[i][i]) < Temp)
                 {
-                    throw new ArgumentException("Чисельне рішення для системи знайти неможливо");
+                    throw new ArgumentException("It is impossible to find a numerical solution for the system");
                 }
             }
             double[] Result = new double[Vector.Length];
@@ -125,7 +125,7 @@ namespace Lab_2
                 k++;
                 bool Condition = true;
                 if (DEBUG)
-                    Console.WriteLine("Дельти");
+                    Console.WriteLine("Deltas");
                 for (int i = 0; i < Result.Length; i++)
                 {
                     if (DEBUG)
@@ -167,11 +167,11 @@ namespace Lab_2
         {
             if (Matrix.Length == 0)
             {
-                throw new ArgumentException("Розміри масивів не повинні бути 0");
+                throw new ArgumentException("Matrix dimensions must not be 0");
             }
             if (Enumerable.Any(Matrix, i => i.Length != Matrix.Length))
             {
-                throw new ArgumentException("Розміри масиву мають бути однакові");
+                throw new ArgumentException("Matrix sizes must be equal");
             }
             double[][] Clone;
             
@@ -208,11 +208,11 @@ namespace Lab_2
         {
             if (Matrix.Length == 0 || Vector.Length == 0)
             {
-                throw new ArgumentException("Розміри масивів не повинні бути 0");
+                throw new ArgumentException("Matrix dimensions must not be 0");
             }
             if (Enumerable.Any(Matrix, i => i.Length != Matrix.Length) || Matrix.Length != Vector.Length)
             {
-                throw new ArgumentException("Розміри масиву мають бути однакові");
+                throw new ArgumentException("Matrix sizes must be equal");
             }
             //double Temp;
             double[][] Clone;// = CloneMatrix(Matrix);
@@ -225,7 +225,7 @@ namespace Lab_2
             }
             if (Enumerable.Any(Matrix, row => Enumerable.All(row, element => element == 0)))
             {
-                throw new ArgumentException("Розв'язок системи є невизначеним (Нескінченне число розв'язків).");
+                throw new ArgumentException("The solution of the system is undetermined (Infinite number of solutions).");
             }
             double[] Result = new double[Vector.Length];
             //double[] Determinants = new double[Vector.Length];
@@ -238,7 +238,7 @@ namespace Lab_2
                 }
                 if (DEBUG)
                 {
-                    Console.WriteLine(new string('-', 25) + $"\nДодаткова Matrix #{i}\n" + new string('-', 25));
+                    Console.WriteLine(new string('-', 25) + $"\nAdditional Matrix #{i}\n" + new string('-', 25));
                 }
                 Result[i] = Determinant(Clone, DEBUG);
                 if (DEBUG)

@@ -13,10 +13,10 @@ namespace Lab_2
             int iterations;
             while (true)
             {
-                Console.Write("Введіть λ: ");
-                lambda = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter λ (Average amount per time): ");
                 try
                 {
+                    lambda = Convert.ToDouble(Console.ReadLine());
                     model = new Model(lambda, 1, 1);
                     break;
                 } 
@@ -27,10 +27,10 @@ namespace Lab_2
             }
             while (true)
             {
-                Console.Write("Введіть час T: ");
-                time = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter the time T (Time of observing): ");
                 try
                 {
+                    time = Convert.ToDouble(Console.ReadLine());
                     model = new Model(lambda, time, 1);
                     break;
                 }
@@ -41,10 +41,10 @@ namespace Lab_2
             }
             while (true)
             {
-                Console.Write("Введіть число ітерацій: ");
-                iterations = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the number of iterations N: ");
                 try
                 {
+                    iterations = Convert.ToInt32(Console.ReadLine());
                     model = new Model(lambda, time, iterations);
                     break;
                 }
@@ -53,32 +53,39 @@ namespace Lab_2
                     Console.WriteLine(e.Message);
                 }
             }
-            Console.WriteLine("Генеруємо потоки випадкових подій");
+            Console.WriteLine("Generating streams of random events");
             model.GenerateStream();
             int counter = 1;
             foreach (List<Tuple<double, double>> list in model.RandomAndTime)
             {
-                Console.WriteLine($"\nІтерація №{counter}");
+                Console.WriteLine($"\nIteration #{counter}");
                 Console.WriteLine($"{new string('=', 20)}");
                 foreach (Tuple<double, double> RandomTime in list)
                 {
-                    Console.WriteLine($"\tЧас: {Math.Round(RandomTime.Item2, 2)}\tВипадкове число: {RandomTime.Item1}");
+                    Console.WriteLine($"\tTime: {Math.Round(RandomTime.Item2, 2)}\tRandom Number: {RandomTime.Item1}");
                 }
                 counter++;
             }
             int number;
             while (true)
             {
-                Console.Write("\nВведіть число НСД: ");
-                number = Convert.ToInt32(Console.ReadLine());
-                if (number > 0) {
-                    break;
+                try
+                {
+                    Console.Write("\nEnter the number of UA's: ");
+                    number = Convert.ToInt32(Console.ReadLine());
+                    if (number > 0) {
+                        break;
+                    }
+                    Console.WriteLine("Positive number is required");
                 }
-                Console.WriteLine("Потрібно додатнє число");
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
 
-            Console.WriteLine("Обраховуємо ймовірності");
-            int equals = 0, bigger = 0, lessOrEquals = 0;
+            Console.WriteLine("Calculating probability");
+            double equals = 0, bigger = 0, lessOrEquals = 0;
             foreach (List<Tuple<double, double>> list in model.RandomAndTime)
             {
                 if (list.Count == number)
@@ -94,9 +101,9 @@ namespace Lab_2
                     lessOrEquals++;
                 }
             }
-            Console.WriteLine($"Рівно {number} НСД: {(double) equals / iterations}");
-            Console.WriteLine($"Більше як {number} НСД: {(double) bigger / iterations}");
-            Console.WriteLine($"Не більше як {number} НСД: {(double) lessOrEquals / iterations}");
+            Console.WriteLine($"Exactly {number} UA's: {(double) equals / iterations}");
+            Console.WriteLine($"More than {number} UA's: {(double) bigger / iterations}");
+            Console.WriteLine($"No more than {number} UA's: {(double) lessOrEquals / iterations}");
         }
     }
 }

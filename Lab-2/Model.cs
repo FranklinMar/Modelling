@@ -15,7 +15,7 @@ namespace Lab_2
 			} 
 			set
 			{
-				lambda = value > 0 ? value : throw new Exception("Потрібно додатнє число");
+				lambda = value > 0 ? value : throw new Exception("Positive number is required");
 			}
 		}
 		private double time;
@@ -27,7 +27,7 @@ namespace Lab_2
 			}
 			set
 			{
-				time = value > 0 ? value : throw new Exception("Потрібно додатнє число");
+				time = value > 0 ? value : throw new Exception("Positive number is required");
 			}
 		}
 		private int iterations;
@@ -39,7 +39,7 @@ namespace Lab_2
 			}
 			set
 			{
-				iterations = value > 0 ? value : throw new Exception("Потрібно додатнє число");
+				iterations = value > 0 ? value : throw new Exception("Positive number is required");
 			}
 		}
 

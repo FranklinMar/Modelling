@@ -49,7 +49,7 @@ namespace Lab_2
             Console.WriteLine($"L{Values.Count} (0.5) = {polynome.Evaluate(0.5)}\n");
             Console.WriteLine($"L{Values.Count} (1.5) = {polynome.Evaluate(1.5)}\n");*/
             //Console.ReadKey();
-            string HTMLFile = File.ReadAllText("..\\..\\..\\..\\ChartFile.html");
+            string HTMLFile = File.ReadAllText("..\\..\\..\\ChartFile.html");
             var Function = JsonConvert.SerializeObject(polynome.Simplify());
             var FunctionValues = JsonConvert.SerializeObject(SearchedValues);
             HTMLFile = HTMLFile.Replace("/*@MARK1*/", $"{Function}");
