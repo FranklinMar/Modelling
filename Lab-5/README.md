@@ -9,7 +9,7 @@ _Lab5_ - Build a mathematical model of the system based on the Markov process wi
 discrete states and discrete time, to find the probabilities of stay
 systems in the specified states. 
 
-## Problem:
+### Problem:
 
 The technical security department conducts a search of embedded devices in the meeting room.
 According to ageny data, it is known that the attackers planted 4 electroacoustic devices.
