@@ -25,4 +25,8 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />-->
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
 </Project>

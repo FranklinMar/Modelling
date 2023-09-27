@@ -1,5 +1,5 @@
 ﻿
-namespace Lab_2
+namespace Common
 {
     partial class LabForm
     {

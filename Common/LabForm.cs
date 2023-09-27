@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using Microsoft.Web.WebView2.Core;
 
-namespace Lab_2
+namespace Common
 {
     public partial class LabForm : Form
     {
