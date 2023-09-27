@@ -21,6 +21,8 @@ Find the solution:
   4) and build a plot for each method, as well as precise solution;
   5) compare calculated approximate values of numerical methods with precise solution with graphs.
 
+## Conditions
+
 | _y'_=_f(x, y)_ | _y(x<sub><sup>0</sub></sup>)_=_y<sub><sup>0</sub></sup>_ | [_a_;_b_] |
 --- | --- | ---
 | y' = y + cos(x / √5) | y(1.8) = 2.6 | [1.8; 2.8] |
