@@ -98,13 +98,13 @@ namespace Lab_6
                         double r = (1 - Math.Pow(Rho, Number) * (Number + 1 - Number * Rho)) * Math.Pow(Rho, 2) / ((1 - Math.Pow(Rho, Number + 2)) * (1 - Rho));
                         double w = (Rho - Math.Pow(Rho, Number + 2)) / (1 - Math.Pow(Rho, Number + 2));
                         Console.WriteLine($"\tProbability of denial of service       | P den = P{Number}+1 = ρ^(n+1)*(1-ρ)/(1-ρ^(n+2)) = {P_vidm,5:0.000}");
-                        Console.WriteLine($"\tRelative bandwidth                     | Q = 1 - P відм = {Q,5:0.000}");
+                        Console.WriteLine($"\tRelative bandwidth                     | Q = 1 - P den = {Q,5:0.000}");
                         Console.WriteLine($"\tAbsolute bandwidth                     | А = λ * Q = {A,5:0.000}");
                         Console.WriteLine($"\tAverage number of requests in the queue| r = {r,5:0.000}");
                         Console.WriteLine($"\tAverage number of applications inside  | w = {w,5:0.000}");
                         Console.WriteLine($"\tAverage number of pending applications | k = w + r = {w + r,5:0.000}");
                         Console.WriteLine($"\tAverage waiting time                   | T wait = {r / Lambda,5:0.000}");
-                        Console.WriteLine($"\tAverage time spent in the system       | T spent = T оч + Q / μ = {r / Lambda + Q / Mu,5:0.000}");
+                        Console.WriteLine($"\tAverage time spent in the system       | T spent = T wait + Q / μ = {r / Lambda + Q / Mu,5:0.000}");
                     }
                     else
                     {
