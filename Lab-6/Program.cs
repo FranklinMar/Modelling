@@ -13,20 +13,20 @@ namespace Lab_6
                 string Line = new string('-', 50);
                 string ReadLine;
                 int Mode;
-                string[] Modes = new string[] { "СМО з відмовами", "Одноканальна СМО з обмеженою чергою" };
+                string[] Modes = new string[] { "MSS with refusals", "Single-channel MSS with a limited queue" };
                 while (true)
                 {
                     Console.OutputEncoding = System.Text.Encoding.UTF8;
-                    string ParamError = "Інтенсивність повинна бути додатнім числом";
+                    string ParamError = "Intensity must be a positive number";
                     bool WithLimitedQueue;
                     while (true)
                     {
                         Console.Clear();
                         Console.WriteLine(Line);
-                        Console.WriteLine("\tСистеми масового обслуговування:");
+                        Console.WriteLine("\tMass Service Systems:");
                         Console.WriteLine(Line);
 
-                        Console.WriteLine("Виберіть режим роботи:\n");
+                        Console.WriteLine("Select the operating mode:\n");
                         for (int i = 0; i < Modes.Length; i++)
                         {
                             Console.WriteLine($"\t{i + 1}. {Modes[i]}");
@@ -45,14 +45,13 @@ namespace Lab_6
                         catch (Exception) { }
                     }
                     double Lambda, Mu;
-                    Lambda = GetVariable("Введіть інтенсивність потоку клієнтів (λ): ", ParamError);
-                    Mu = GetVariable("Введіть інтенсивність оброблення заявок (μ): ", ParamError);
+                    Lambda = GetVariable("Enter the intensity of the flow of customers (λ): ", ParamError);
+                    Mu = GetVariable("Enter the application processing intensity (μ): ", ParamError);
 
 
                     int Number;
-                    Number = (int)GetVariable((WithLimitedQueue ?
-                        "Введіть число місць у черзі" :
-                        "Введіть число каналів") + " (n): ", "Число повинно бути натуральним");
+                    Number = (int)GetVariable((WithLimitedQueue ? "Enter the number of seats in the queue" : "Enter the number of channels") + " (n): ",
+                        "The number must be natural");
                     double Rho = Lambda / Mu;
                     double[] P = new double[Number + 1];
                     double Denominator = 0, A, Q, P_vidm;
@@ -84,7 +83,7 @@ namespace Lab_6
                     Console.WriteLine($"\tn = {Number}");
                     Console.WriteLine($"\tρ = {Rho}");
                     Console.WriteLine(Line);
-                    Console.WriteLine("\tГраничні ймовірності:");
+                    Console.WriteLine("\tMarginal probabilities:");
                     Console.WriteLine(Line);
                     for (int i = 0; i < P.Length; i++)
                     {
@@ -98,23 +97,23 @@ namespace Lab_6
                         A = Q * Lambda;
                         double r = (1 - Math.Pow(Rho, Number) * (Number + 1 - Number * Rho)) * Math.Pow(Rho, 2) / ((1 - Math.Pow(Rho, Number + 2)) * (1 - Rho));
                         double w = (Rho - Math.Pow(Rho, Number + 2)) / (1 - Math.Pow(Rho, Number + 2));
-                        Console.WriteLine($"\tЙмовірність відмови в обслуговуванні   | P відм = P{Number}+1 = ρ^(n+1)*(1-ρ)/(1-ρ^(n+2)) = {P_vidm,5:0.000}");
-                        Console.WriteLine($"\tВідносна пропускна здатність           | Q = 1 - P відм = {Q,5:0.000}");
-                        Console.WriteLine($"\tАбсолютна пропускна здатність          | А = λ * Q = {A,5:0.000}");
-                        Console.WriteLine($"\tСереднє число заявок на обробку в черзі| r = {r,5:0.000}");
-                        Console.WriteLine($"\tСереднє число заявок на обробці в СМО  | w = {w,5:0.000}");
-                        Console.WriteLine($"\tСереднє число заявок, що знаходяться   | k = w + r = {w + r,5:0.000}");
-                        Console.WriteLine($"\tСередній час очікування                | T оч = {r / Lambda,5:0.000}");
-                        Console.WriteLine($"\tСередній час перебування в системі     | T сист = T оч + Q / μ = {r / Lambda + Q / Mu,5:0.000}");
+                        Console.WriteLine($"\tProbability of denial of service       | P den = P{Number}+1 = ρ^(n+1)*(1-ρ)/(1-ρ^(n+2)) = {P_vidm,5:0.000}");
+                        Console.WriteLine($"\tRelative bandwidth                     | Q = 1 - P відм = {Q,5:0.000}");
+                        Console.WriteLine($"\tAbsolute bandwidth                     | А = λ * Q = {A,5:0.000}");
+                        Console.WriteLine($"\tAverage number of requests in the queue| r = {r,5:0.000}");
+                        Console.WriteLine($"\tAverage number of applications inside  | w = {w,5:0.000}");
+                        Console.WriteLine($"\tAverage number of pending applications | k = w + r = {w + r,5:0.000}");
+                        Console.WriteLine($"\tAverage waiting time                   | T wait = {r / Lambda,5:0.000}");
+                        Console.WriteLine($"\tAverage time spent in the system       | T spent = T оч + Q / μ = {r / Lambda + Q / Mu,5:0.000}");
                     }
                     else
                     {
-                        Console.WriteLine($"\tЙмовірність відмови в обслуговуванні| P відм = P{Number} = {P[Number],5:0.000}");
-                        Console.WriteLine($"\tВідносна пропускна здатність        | Q = 1 - P{Number} = {Q,5:0.000}");
-                        Console.WriteLine($"\tАбсолютна пропускна здатність       | А = λ * Q = {A,5:0.000}");
-                        Console.WriteLine($"\tСереднє число зайнятих каналів      | k = ρ * (1 - P{Number}) = {Rho * (1 - P[Number]),5:0.000}");
-                        Console.WriteLine($"\tСередній час обслуговування 1 каналу| T обс = 1 / μ = {1 / Mu,5:0.000}");
-                        Console.WriteLine($"\tСередній час простою каналу         | T λ = 1 / λ = {1 / Lambda,5:0.000}");
+                        Console.WriteLine($"\tProbability of denial of service   | P den = P{Number} = {P[Number],5:0.000}");
+                        Console.WriteLine($"\tRelative bandwidth                 | Q = 1 - P{Number} = {Q,5:0.000}");
+                        Console.WriteLine($"\tAbsolute bandwidth                 | А = λ * Q = {A,5:0.000}");
+                        Console.WriteLine($"\tAverage number of busy channels    | k = ρ * (1 - P{Number}) = {Rho * (1 - P[Number]),5:0.000}");
+                        Console.WriteLine($"\tAverage service time of one channel| T serv = 1 / μ = {1 / Mu,5:0.000}");
+                        Console.WriteLine($"\tAverage channel idle time          | T λ = 1 / λ = {1 / Lambda,5:0.000}");
                     }
                     Console.WriteLine(Line);
                     Console.ReadLine();
