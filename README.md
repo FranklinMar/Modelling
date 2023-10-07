@@ -4,3 +4,5 @@
 **Course Name:** _Mathematical models of systems and processes._
 
 **Grade:** _3-rd_.
+
+**Used API's and Technologies:** _.NET Core_, _MathNet_, _NewtonSoft_, _Chart.js_, _Windows Forms_, _WebView2_.
