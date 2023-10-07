@@ -8,7 +8,7 @@ This folder is dedicated to Lab-8.
 _Lab8_ - Find the optimal value of the parameter **_x_**, which leads to
 minimum objective function:
 
-$_f(x) = d_1 * x^3 + d_2 * x^2 + d_3 * x + d_4_ → min$
+$$f(x) = d_1 * x^3 + d_2 * x^2 + d_3 * x + d_4 → min$$
 
 on the interval x ∈ [0;10] with an accuracy of δ = 0.01. Apply the method
 of interval division in half. Plot the objective function to display the 
